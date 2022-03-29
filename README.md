@@ -10,3 +10,5 @@ DragEdit for Int in range
 DateEdit for LocalDate
 
 TimeEdit for LocalTime
+
+LazyCombo for any T

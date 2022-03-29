@@ -19,9 +19,23 @@ fun App() {
     var date by remember { mutableStateOf(LocalDate.now()) }
     var time by remember { mutableStateOf(LocalTime.now()) }
     var precision by remember { mutableStateOf(7) }
+    var code by remember { mutableStateOf("007") }
+    var search by remember { mutableStateOf("007") }
+    val all = remember { List(50) { it.toString().padStart(3,'0') } }
+    val items by remember { derivedStateOf {
+        all.filter { it.contains(search) }
+    } }
 
     MaterialTheme {
         Column {
+            LazyCombo(code, {
+                code = it
+                search = it
+            }, Modifier.width(100.dp), {
+                search = it
+                true
+            }, items, fontSize = 36.sp, color = MaterialTheme.colors.secondaryVariant)
+
             DragEdit(value, { value = it }, Modifier.width(60.dp),
                 fontSize = 48.sp, color = MaterialTheme.colors.primaryVariant, textAlign = TextAlign.Center
             )
