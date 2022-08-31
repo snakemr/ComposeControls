@@ -2,6 +2,7 @@ import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -49,6 +50,8 @@ fun App() {
                 color = MaterialTheme.colors.secondaryVariant, fontSize = 48.sp, seconds = true
             )
             SpinEdit(precision, { precision = it }, Modifier.width(24.dp), 0..72)
+
+            PointerEventButton({ println(1) }, onRightClick = { println(-1) }, onDoubleClick = { println(2) } ) { Text("click me") }
         }
     }
 }
