@@ -52,6 +52,10 @@ fun App() {
             SpinEdit(precision, { precision = it }, Modifier.width(24.dp), 0..72)
 
             PointerEventButton({ println(1) }, onRightClick = { println(-1) }, onDoubleClick = { println(2) } ) { Text("click me") }
+
+
+            var d by remember { mutableStateOf(LocalDate.now()) }
+            Calendar(d, { d = it })
         }
     }
 }
