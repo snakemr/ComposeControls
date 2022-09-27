@@ -12,3 +12,5 @@ DateEdit for LocalDate
 TimeEdit for LocalTime
 
 LazyCombo for any T
+
+Outlined PointerEventButton (DoubleClick, RightClick)
